@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block title %}Signup {% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form name="RegisterForm" class="signup" method="POST">
+    {% csrf_token %}
+    <h1 class="heading">Registration Form</h1>
+    <div class="box">
+        <label for="firstName">First Name :</label>
+        <input type="text" name="firstName" id="firstName" placeholder="Enter your First Name " required>
+    </div>
+    <div class="box">
+        <label for="lastName">Last Name :</label>
+        <input type="text" name="lastName" id="lastName" placeholder="Enter your Last Name " required>
+    </div>
+    <div class="box">
+        <label for="userName">User Name:</label>
+        <input type="text" name="userName" id="userName" placeholder="Enter your User Name " required>
+    </div>
+    <div class="box">
+        <label for="email">Email :</label>
+        <input type="email" name="email" id="email" placeholder="Enter your Email " required>
+    </div>
+    <div class="box">
+        <label for="role">Role :</label>
+        <select name="role" id="role" required>
+            <option value="" selected disabled>Select your role</option>
+            <option value="student">Student</option>
+            <option value="warden">Warden</option>
+            <option value="security">Security</option>
+        </select>
+    </div>
+
+    <div class="box">
+        <label for="passwrod">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password " required>
+    </div>
+    <div class="button">
+        <input type="submit" class="submit">
+        <input type="button" class="reset" value="Reset">
+    </div>
+
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block title %}
+login
+{% endblock %}
+
+{% block content %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Out Time</th>
+            <th>In Time</th>
+            <th>Reason</th>
+            <th>status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for outing in outings %}
+        <tr>
+            <td>{{ outing.in_time }}</td>
+            <td>{{ outing.out_time }}</td>
+            <td>{{ outing.reason }}</td>
+            <td>Pending</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

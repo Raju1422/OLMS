@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block title %}
+login
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form name="RegisterForm" class="signup" method="POST">
+    {% csrf_token %}
+    <h1 class="heading">Login Form</h1>
+
+    <div class="box">
+        <label for="userName">User Name:</label>
+        <input type="text" name="userName" id="userName" placeholder="Enter your User Name " required>
+    </div>
+
+    <div class="box">
+        <label for="passwrod">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password " required>
+    </div>
+    <!-- <div class="box">
+        <label for="role">Role :</label>
+        <select name="role" id="role" required>
+            <option value="" selected disabled>Select your role</option>
+            <option value="student">Student</option>
+            <option value="warden">Warden</option>
+        </select>
+    </div> -->
+    <div class="button">
+        <input type="submit" class="submit">
+        <input type="button" class="reset" value="Reset">
+    </div>
+    <p style="text-align: center;">Forgot Password ?? <a href="#">Click Here</a></p>
+</form>
+
+{% endblock %}
